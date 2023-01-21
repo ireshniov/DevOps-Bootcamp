@@ -34,18 +34,6 @@ git push -u origin main
  <br />
 
 ```shell
-./gradlew build
-```
-
-</details>
-
-******
-
-<details>
-<summary>Exercise 2: Run tests </summary>
- <br />
-
-```shell
 # change "true" string to true boolean
 boolean result = myApp.getCondition(true);
 

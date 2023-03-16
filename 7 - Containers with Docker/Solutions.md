@@ -342,7 +342,7 @@ volumes:
 6) On Linux server - to add an insecure docker registry, add the file /etc/docker/daemon.json with the following content. In my case edit Docker desktop settings
 ```text
 {
-  "insecure-registries" :   "insecure-registries": [ "http://127.0.0.1:8085" ]
+    "insecure-registries": [ "http://127.0.0.1:8085" ]
 }
 ```
 

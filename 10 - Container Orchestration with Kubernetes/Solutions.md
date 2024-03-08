@@ -230,7 +230,7 @@ To connect to your database:
       mysql -h mysql-secondary.default.svc.cluster.local -uroot -p"$MYSQL_ROOT_PASSWORD"
 ```
 
-Check mysql helm chart installation
+#### Check mysql helm chart installation
 ```shell
 (base) ➜  Exercises helm ls
 NAME    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART           APP VERSION
@@ -393,7 +393,7 @@ spec:
     port: 8080
     targetPort: 8080
 ```
-Apply configmaps and secret components
+#### Apply configmaps and secret components
 ```shell
 (base) ➜  Exercises kubectl apply -f ./k8s-deployment/mysql-config.yaml -f ./k8s-deployment/mysql-secret.yaml
 configmap/mysql-config created

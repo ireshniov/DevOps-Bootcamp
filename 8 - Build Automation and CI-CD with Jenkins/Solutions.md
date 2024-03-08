@@ -154,7 +154,9 @@ RUN apt-get -y update && \
 
 # Install nvm & node & npm
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-RUN nvm install 18.14.2
+
+#RUN nvm install node
+RUN . ~/.nvm/nvm.sh && nvm install 18.14.2
 
 RUN git config --global user.email "jenkins@example.com"
 RUN git config --global user.name "jenkins"
@@ -199,8 +201,7 @@ FROM jenkins/ssh-agent:alpine
 RUN apk update
 RUN apk add docker docker-cli-compose git curl
 
-#RUN apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/main/ nodejs=18.14.2-r0 npm
-RUN apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/3.17/main/ nodejs=18.14.2-r0 npm
+RUN apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/v3.18/main/ nodejs=18.18.2-r0 npm
 
 RUN git config --global user.email "jenkins@example.com"
 RUN git config --global user.name "jenkins"
@@ -227,6 +228,7 @@ docker exec -u 0 -it agent1 chmod 666 /var/run/docker.sock
 ```text
 Manage Jenkins -> Manage Credentials -> Add Credentials. Create credentials with
 
+Kind: SSH Username with private key
 id: jenkins
 username: jenkins
 Private Key: Enter directly -> on host `cat ~/.ssh/jenkins_agent_key`
